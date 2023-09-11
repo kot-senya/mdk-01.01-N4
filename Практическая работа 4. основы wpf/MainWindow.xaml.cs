@@ -37,12 +37,13 @@ namespace Практическая_работа_4.основы_wpf
                 if (date > DateTime.Now)
                 {
                     Back.Visibility = Visibility.Collapsed;
-                    CBCalendar.SelectedIndex = 0;
-                    TBCalendar.Text = "";
                     MessageBox.Show("Выбранная дата не может быть больше текущей");
                 }
                 else
                 {
+                    CBCalendar.SelectedIndex = 0;
+                    TBCalendar.Text = "";
+
                     TBAnswer1.Text = task1(date);
                     TBAnswer2.Text = task2(date);
                     TBAnswer3.Text = task3(date);
