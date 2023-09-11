@@ -24,10 +24,11 @@ namespace Практическая_работа_4.основы_wpf
         public MainWindow()
         {
             InitializeComponent();
+
             Back.Visibility = Visibility.Collapsed;
         }
 
-        private void Find_Click(object sender, RoutedEventArgs e)
+        private void FindClick(object sender, RoutedEventArgs e)
         {
             try
             {
@@ -36,6 +37,8 @@ namespace Практическая_работа_4.основы_wpf
                 if (date > DateTime.Now)
                 {
                     Back.Visibility = Visibility.Collapsed;
+                    CBCalendar.SelectedIndex = 0;
+                    TBCalendar.Text = "";
                     MessageBox.Show("Выбранная дата не может быть больше текущей");
                 }
                 else
@@ -228,6 +231,198 @@ namespace Практическая_работа_4.основы_wpf
             {
                 return "Количество високосных лет, прошедших со дня рождения - " + count + "\n" + value.Remove(value.Length - 2);
             }
+        }
+
+        private void BtnSeeClick(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                if (CBCalendar.SelectedIndex != 0)
+                {
+                    switch (CBCalendar.SelectedIndex)
+                    {
+                        case 1:
+                            {
+                                TBCalendar.Text = slavicCalendar();
+                            }
+                            break;
+                        case 2:
+                            {
+                                TBCalendar.Text = easternCalendar();
+                            }
+                            break;
+                        default:
+                            {
+                                MessageBox.Show("Что-то пошло не так");
+                            }
+                            break;
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Выберите один из календарей, чтобы заработало");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private string easternCalendar()
+        {
+            string value = "По восточному календарю вы - ";
+            DateTime date = DP.SelectedDate.Value;
+
+            switch (date.Year % 12)
+            {
+                case 0:
+                    {
+                        value += "обезьяна ";
+                    }
+                    break;
+                case 1:
+                    {
+                        value += "петух ";
+                    }
+                    break;
+                case 2:
+                    {
+                        value += "собака ";
+                    }
+                    break;
+                case 3:
+                    {
+                        value += "кабан ";
+                    }
+                    break;
+                case 4:
+                    {
+                        value += "крыса ";
+                    }
+                    break;
+                case 5:
+                    {
+                        value += "бык ";
+                    }
+                    break;
+                case 6:
+                    {
+                        value += "тигр ";
+                    }
+                    break;
+                case 7:
+                    {
+                        value += "кот ";
+                    }
+                    break;
+                case 8:
+                    {
+                        value += "дракон ";
+                    }
+                    break;
+                case 9:
+                    {
+                        value += "змея ";
+                    }
+                    break;
+                case 10:
+                    {
+                        value += "конь ";
+                    }
+                    break;
+                case 11:
+                    {
+                        value += "овца ";
+                    }
+                    break;
+                default:
+                    {
+                        MessageBox.Show("Возникла ошибка");
+                        return "";
+                    }
+            }
+            return value;
+        }
+
+        private string slavicCalendar()
+        {
+            string value = "По славянскому календарю вы - ";
+            DateTime date = DP.SelectedDate.Value;
+
+            if (date >= new DateTime(date.Year, 12, 24) && date <= new DateTime(date.Year, 1, 30))
+            {
+                value += "Морозко";
+            }
+            else if (date >= new DateTime(date.Year, 1, 31) && date <= new DateTime(date.Year, 2, 28))
+            {
+                value += "Велес";
+            }
+            else if (date >= new DateTime(date.Year, 3, 1) && date <= new DateTime(date.Year, 3, 31))
+            {
+                value += "Макошь";
+            }
+            else if (date >= new DateTime(date.Year, 4, 1) && date <= new DateTime(date.Year, 4, 30))
+            {
+                value += "Жива";
+            }
+            else if (date >= new DateTime(date.Year, 5, 1) && date <= new DateTime(date.Year, 5, 14))
+            {
+                value += "Ярило ";
+            }
+            else if (date >= new DateTime(date.Year, 5, 15) && date <= new DateTime(date.Year, 6, 2))
+            {
+                value += "Леля";
+            }
+            else if (date >= new DateTime(date.Year, 6, 3) && date <= new DateTime(date.Year, 6, 12))
+            {
+                value += "Кострома";
+            }
+            else if (date >= new DateTime(date.Year, 6, 13) && date <= new DateTime(date.Year, 7, 6) && date != new DateTime(date.Year, 6, 24))
+            {
+                value += "Додола";
+            }
+            else if (date == new DateTime(date.Year, 6, 24))
+            {
+                value += "Иван Купала ";
+            }
+            else if (date >= new DateTime(date.Year, 7, 7) && date <= new DateTime(date.Year, 7, 31))
+            {
+                value += "Лада";
+            }
+            else if (date >= new DateTime(date.Year, 8, 1) && date <= new DateTime(date.Year, 8, 28))
+            {
+                value += "Перун";
+            }
+            else if (date >= new DateTime(date.Year, 8, 29) && date <= new DateTime(date.Year, 9, 13))
+            {
+                value += "Сева ";
+            }
+            else if (date >= new DateTime(date.Year, 9, 14) && date <= new DateTime(date.Year, 9, 27))
+            {
+                value += "Рожаница";
+            }
+            else if (date >= new DateTime(date.Year, 9, 28) && date <= new DateTime(date.Year, 10, 15))
+            {
+                value += "Сварожичи";
+            }
+            else if (date >= new DateTime(date.Year, 10, 16) && date <= new DateTime(date.Year, 11, 8))
+            {
+                value += "Морена ";
+            }
+            else if (date >= new DateTime(date.Year, 11, 9) && date <= new DateTime(date.Year, 11, 28))
+            {
+                value += "Зима ";
+            }
+            else if (date >= new DateTime(date.Year, 11, 29) && date <= new DateTime(date.Year, 12, 23))
+            {
+                value += "Карачун ";
+            }
+            else
+            {
+                value += "Велес";
+            }
+            return value;
         }
     }
 }

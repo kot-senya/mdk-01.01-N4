@@ -15,9 +15,9 @@
         <StackPanel Orientation="Horizontal" Grid.Row="0" Margin="6">
             <TextBlock Style="{StaticResource TBkUsually}">Введите свою дату рождения</TextBlock>
             <DatePicker Name="DP" Margin="15 0 0 0" Cursor="Hand"></DatePicker>
-            <Button x:Name="Find" Click="Find_Click" Style="{StaticResource BtnUsually}" Margin="15 0 0 0">Вычислить</Button>
+            <Button x:Name="Find" Click="FindClick" Style="{StaticResource BtnUsually}" Margin="15 0 0 0">Вычислить</Button>
         </StackPanel>
-        
+
         <StackPanel x:Name="Back" Margin="15"  Grid.Row="1">
             <TextBlock Style="{StaticResource TBkHeader}">Задание 1</TextBlock>
             <TextBlock Name="TBAnswer1" Style="{StaticResource TBkUsually}"></TextBlock>
@@ -25,6 +25,19 @@
             <TextBlock Name="TBAnswer2" Style="{StaticResource TBkUsually}"></TextBlock>
             <TextBlock Style="{StaticResource TBkHeader}">Задание 3</TextBlock>
             <TextBlock Name="TBAnswer3" Style="{StaticResource TBkUsually}"></TextBlock>
+
+            <StackPanel Width="Auto" HorizontalAlignment="Left">
+                <TextBlock  Style="{StaticResource TBkHeader}">Выберите календарь, по которому хотите узнать свой задиак</TextBlock>
+                <StackPanel Orientation="Horizontal">
+                    <ComboBox Name="CBCalendar" Style="{StaticResource CBUsually}">
+                        <ComboBoxItem Name="CBIDefolt" IsSelected="True">~~Выберетие календарь~~</ComboBoxItem>
+                        <ComboBoxItem>Cлавянский календарь</ComboBoxItem>
+                        <ComboBoxItem>Восточный календарь</ComboBoxItem>
+                    </ComboBox>
+                    <Button Name="BtnSee" Click="BtnSeeClick" Margin="10 10 0 0" Style="{StaticResource BtnUsually}">Узнать</Button>
+                </StackPanel>
+                <TextBlock Name="TBCalendar" Style="{StaticResource TBkUsually}" Margin="0 10"/>
+            </StackPanel>
         </StackPanel>
     </Grid>
 </Window>

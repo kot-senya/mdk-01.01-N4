@@ -19,6 +19,7 @@
         <Style x:Key="BtnUsually" TargetType="Button">
             <Style.Setters>
                 <Setter Property="Padding" Value="20 0"/>
+                <Setter Property="Margin" Value="0 10"/>
                 <Setter Property="Background" Value="#C39BD3"/>
                 <Setter Property="Foreground" Value="White"/>
                 <Setter Property="FontSize" Value="12"/>
@@ -41,5 +42,11 @@
             </Style.Triggers>
         </Style>
 
+        <Style x:Key="CBUsually" TargetType="{x:Type ComboBox}">
+
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="FontSize" Value="12"/>
+            <Setter Property="Margin" Value="0 10 0 0"/>
+        </Style>
     </Application.Resources>
 </Application>
