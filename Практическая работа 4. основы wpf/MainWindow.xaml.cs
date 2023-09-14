@@ -355,13 +355,13 @@ namespace Практическая_работа_4.основы_wpf
                 case 2:
                 case 3:
                     {
-                        value += "черный ";
+                        value += "черный (голубой) ";
                     }
                     break;
                 case 4:
                 case 5:
                     {
-                        value += "синий ";
+                        value += "синий (зеленый)";
                     }
                     break;
                 case 6:
