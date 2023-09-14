@@ -272,69 +272,69 @@ namespace Практическая_работа_4.основы_wpf
 
         private string easternCalendar()
         {
-            string value = "По восточному календарю вы - ";
+            string value = "По восточному календарю ваше животное - ";
             DateTime date = DP.SelectedDate.Value;
 
             switch (date.Year % 12)
             {
                 case 0:
                     {
-                        value += "обезьяна ";
+                        value += "обезьяна, ваш цвет - ";
                     }
                     break;
                 case 1:
                     {
-                        value += "петух ";
+                        value += "петух, ваш цвет - ";
                     }
                     break;
                 case 2:
                     {
-                        value += "собака ";
+                        value += "собака, ваш цвет - ";
                     }
                     break;
                 case 3:
                     {
-                        value += "кабан ";
+                        value += "кабан, ваш цвет - , ваш цвет - ";
                     }
                     break;
                 case 4:
                     {
-                        value += "крыса ";
+                        value += "крыса, ваш цвет - , ваш цвет - ";
                     }
                     break;
                 case 5:
                     {
-                        value += "бык ";
+                        value += "бык, ваш цвет - , ваш цвет - ";
                     }
                     break;
                 case 6:
                     {
-                        value += "тигр ";
+                        value += "тигр, ваш цвет - ";
                     }
                     break;
                 case 7:
                     {
-                        value += "кот ";
+                        value += "кот, ваш цвет - ";
                     }
                     break;
                 case 8:
                     {
-                        value += "дракон ";
+                        value += "дракон, ваш цвет - ";
                     }
                     break;
                 case 9:
                     {
-                        value += "змея ";
+                        value += "змея, ваш цвет - ";
                     }
                     break;
                 case 10:
                     {
-                        value += "конь ";
+                        value += "конь, ваш цвет - ";
                     }
                     break;
                 case 11:
                     {
-                        value += "овца ";
+                        value += "овца, ваш цвет - ";
                     }
                     break;
                 default:
@@ -342,6 +342,46 @@ namespace Практическая_работа_4.основы_wpf
                         MessageBox.Show("Возникла ошибка");
                         return "";
                     }
+            }
+
+            switch (date.Year % 10)
+            {
+                case 0:
+                case 1:
+                    {
+                        value += "белый ";
+                    }
+                    break;
+                case 2:
+                case 3:
+                    {
+                        value += "черный ";
+                    }
+                    break;
+                case 4:
+                case 5:
+                    {
+                        value += "синий ";
+                    }
+                    break;
+                case 6:
+                case 7:
+                    {
+                        value += "красный";
+                    }
+                    break;
+                case 8:
+                case 9:
+                    {
+                        value += "желтый";
+                    }
+                    break;
+                default:
+                    {
+                        MessageBox.Show("Возникла ошибка");
+                        return "";
+                    }
+
             }
             return value;
         }
